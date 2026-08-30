@@ -8,47 +8,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.static('./dist'))
 
-let words = [
-    {
-      id: "1",
-      word: "serried",
-      meaning: "something being packed tightly together",
-      type: "adverb",
-      synonyms: [
-        "compressed",
-        "dense",
-        "crowded"
-      ]
-    },
-    {
-      id: "2",
-      word: "date",
-      meaning: "reference to the day of the month of the year / romantic event between intimate persons",
-      type: "noun",
-      synonyms: []
-    },
-    {
-      id: "3",
-      word: "toes",
-      type: "noun",
-      meaning: "part of the feet",
-      synonyms: [
-        "tick",
-        "tack",
-        "toe"
-      ]
-    },
-    {
-      id: "4",
-      word: "aghast",
-      type: "adjective",
-      meaning: "filled with shock or horror",
-      synonyms: [
-        "scary"
-      ]  
-    }
-]
-
 app.get('/words', (req , res) => {
     Word.find({}).then(result => {
       res.json(result)
