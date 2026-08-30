@@ -10,7 +10,15 @@ app.use(express.static('./dist'))
 
 app.get('/words', (req , res) => {
     Word.find({}).then(result => {
-      res.json(result)
+      if(result){
+        res.json(result)
+      }else{
+        res.status(404).end()
+      }
+    })
+    .catch(err => {
+      console.log(err)
+      res.status(500).end()
     })
 })
 
